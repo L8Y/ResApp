@@ -1,0 +1,42 @@
+<form [formGroup]="registerForm" class="register-page">
+  <h1 class="title">Register</h1>
+  <input
+    class="register-input"
+    formControlName="restaurantName"
+    type="text"
+    placeholder="Enter restaurant name"
+  />
+  <div *ngIf="registerForm.get('restaurantName')?.touched">
+    <div *ngIf="registerForm.get('restaurantName')?.hasError('required')">
+      Required
+    </div>
+  </div>
+  <input
+    class="register-input"
+    type="email"
+    formControlName="email"
+    placeholder="Enter email"
+  />
+  <div class="errorMessage" *ngIf="registerForm.get('email')?.touched">
+    <div *ngIf="registerForm.get('email')?.hasError('required')">Required</div>
+    <div *ngIf="registerForm.get('email')?.hasError('email')">
+      Enter a valid email
+    </div>
+  </div>
+  <input
+    class="register-input"
+    type="password"
+    formControlName="password"
+    placeholder="Enter password"
+  />
+  <div *ngIf="registerForm.get('password')?.touched">
+    <div *ngIf="registerForm.get('password')?.hasError('required')">
+      Required
+    </div>
+    <div *ngIf="registerForm.get('password')?.hasError('minlength')">
+      Password should have a min length of 6 characters
+    </div>
+  </div>
+  <small>Already have an account? Click on <a href=""> Login</a></small>
+  <button class="submit-button" (click)="onSubmit()">Submit</button>
+</form>
