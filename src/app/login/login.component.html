@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+   <div class="card">
+     <div class="text-center">
+
+  <h2>Admin login</h2></div>
+  <form #loginform="ngForm" (ngSubmit)="loginAdmin()">
+    <small class="text-danger">{{msg}}</small>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="text" class="form-control"  placeholder="Enter email" name="email" [(ngModel)]="login.email" 
+      #email="ngModel" 
+   >
+      
+
+     </div><br>
+    <div class="form-group">
+      <label for="pwd">Password:</label>
+      <input type="password" class="form-control" placeholder="Enter password" name="password" [(ngModel)]="login.password" required #password="ngModel"
+    
+      >
+      
+    </div>
+  <br>
+    <button type="submit" class="btn btn-info">login &nbsp; </button>&nbsp;
+  
+  </form>
+ 
+ 
+  </div></div></div>
+
